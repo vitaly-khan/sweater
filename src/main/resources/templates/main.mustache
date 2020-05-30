@@ -1,17 +1,26 @@
 <html>
 <body>
-<form method="post" action="/">
-    <input type="text" name="text" placeholder="Input a message"/>
-    <input type="text" name="tag" placeholder="Tag"/>
-    <button type="submit">Send</button>
-    <button type="reset">Reset</button>
-</form>
-<form method="post" action="/filter">
-    <input type="text" name="filter"/>
-    <button type="submit">Find</button>
-    <button type="reset">Reset</button>
-</form>
-<div>List of messages </div>
+<div>
+    <form method="post" action="/logout">
+        <input type="submit" value="Sign out"/>
+    </form>
+</div>
+<div>
+    <form method="post" action="/">
+        <input type="text" name="text" placeholder="Input a message"/>
+        <input type="text" name="tag" placeholder="Tag"/>
+        <button type="submit">Send</button>
+        <button type="reset">Reset</button>
+    </form>
+</div>
+<div>
+    <form method="post" action="/filter">
+        <input type="text" name="filter"/>
+        <button type="submit">Find</button>
+        <button type="reset">Reset</button>
+    </form>
+</div>
+<div>List of messages</div>
 {{#messages}}
     <div>
         <b>{{id}}</b>
