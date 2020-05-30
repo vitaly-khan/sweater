@@ -4,6 +4,12 @@
     <input type="text" name="text" placeholder="Input a message"/>
     <input type="text" name="tag" placeholder="Tag"/>
     <button type="submit">Send</button>
+    <button type="reset">Reset</button>
+</form>
+<form method="post" action="/filter">
+    <input type="text" name="filter"/>
+    <button type="submit">Find</button>
+    <button type="reset">Reset</button>
 </form>
 <div>List of messages </div>
 {{#messages}}
