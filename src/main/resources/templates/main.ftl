@@ -9,6 +9,7 @@
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             <button type="submit">Send</button>
             <button type="reset">Reset</button>
+            <button type="reset">Reset</button>
         </form>
     </div>
     <div>
@@ -25,7 +26,7 @@
             <span>${message.text}</span>
             <i>${message.tag}</i>
             by
-            <strong>${message.authorName}</strong>
+            <strong>${(message.author.username)!"&lt;none&gt;"}</strong>
         </div>
     <#else>
         No messages
