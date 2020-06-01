@@ -1,5 +1,6 @@
 package com.vitalykhan.sweater.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/", "/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -34,14 +35,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
     }
 
+    @Value("${spring.query.user}")
+    private String userQuery;
+
+    @Value("${spring.query.authorities}")
+    private String authoritiesQuery;
+
     //Authentication by means of jdbc
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
-        .passwordEncoder(NoOpPasswordEncoder.getInstance())
-        .usersByUsernameQuery("SELECT username, password, active FROM usr WHERE username=?")
-        .authoritiesByUsernameQuery("SELECT u.username, ur.roles FROM usr u JOIN user_role ur ON u.id=ur.user_id WHERE u.username=?");
-
+                .passwordEncoder(NoOpPasswordEncoder.getInstance())
+                .usersByUsernameQuery(userQuery)
+                .authoritiesByUsernameQuery(authoritiesQuery);
     }
 }

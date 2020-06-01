@@ -1,4 +1,4 @@
-package com.vitalykhan.sweater;
+package com.vitalykhan.sweater.controller;
 
 import com.vitalykhan.sweater.domain.Message;
 import com.vitalykhan.sweater.repository.MessageRepository;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
 
     private MessageRepository repository;
 
-    public GreetingController(MessageRepository repository) {
+    public MainController(MessageRepository repository) {
         this.repository = repository;
     }
 
