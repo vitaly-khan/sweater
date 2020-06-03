@@ -9,7 +9,6 @@
             <input type="hidden" name="_csrf" value="${_csrf.token}"/>
             <button type="submit">Send</button>
             <button type="reset">Reset</button>
-            <button type="reset">Reset</button>
         </form>
     </div>
     <div>

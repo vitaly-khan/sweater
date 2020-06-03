@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Map;
 
@@ -34,7 +33,7 @@ public class RegistrationController {
             model.put("message", "User exists already!");
             return "registration";
         }
-        user.setRole(EnumSet.of(Role.USER));
+        user.setRoles(EnumSet.of(Role.USER));
 
         repository.save(user);
 
