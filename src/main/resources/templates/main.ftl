@@ -10,7 +10,7 @@
     </div>
 
     <a class="btn btn-primary" data-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false"
-       aria-controls="collapseExample">
+       aria-controls="collapseForm">
         Add new message
     </a>
     <div class="collapse" id="collapseForm">
@@ -37,16 +37,18 @@
     </div>
 
     <#list messages as message>
-        <div>
-            <b>${message.id}</b>
-            <span>${message.text}</span>
-            <i>${message.tag}</i>
-            by
-            <strong>${(message.author.username)!"&lt;none&gt;"}</strong>
-            <div>
-                <#if message.filename??>
-                    <img src="/img/${message.filename}">
-                </#if>
+        <div class="card my-3" style="width: 38rem;">
+            <#if message.filename??>
+                <img src="/img/${message.filename}" class="card-img-top">
+            </#if>
+            <div class="m-2">
+                <span>${message.text}</span>
+                <i>${message.tag}</i>
+            </div>
+            <div class="card-footer text-muted text-right" >
+                <small>
+                    by <strong>${(message.author.username)!"&lt;none&gt;"}</strong>
+                </small>
             </div>
         </div>
     <#else>

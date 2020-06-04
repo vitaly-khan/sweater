@@ -25,5 +25,7 @@
     <div class="navbar-text mr-3">
         ${name}
     </div>
-    <@l.logout />
+    <#if name!="Guest">
+        <@l.logout />
+    </#if>
 </nav>
