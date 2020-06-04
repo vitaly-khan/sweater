@@ -1,4 +1,5 @@
 <#include "security.ftl">
+<#import "login.ftl" as l>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" xmlns="http://www.w3.org/1999/html">
     <a class="navbar-brand" href="/">Sweater</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -20,7 +21,9 @@
                 </li>
             </#if>
         </ul>
-    </div class="navbar-text">
-    ${name}</div>
     </div>
+    <div class="navbar-text mr-3">
+        ${name}
+    </div>
+    <@l.logout />
 </nav>

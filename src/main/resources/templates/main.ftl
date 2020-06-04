@@ -1,7 +1,5 @@
 <#import "parts/common.ftl" as c>
-<#import "parts/login.ftl" as l>
 <@c.page>
-    <@l.logout />
     <div>
         <form method="post" action="/main" enctype="multipart/form-data">
             <input type="text" name="text" placeholder="Input a message"/>
