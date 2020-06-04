@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-    <div class="container">
+    <#include "navbar.ftl">
+    <div class="container mt-5">    <!-- mt5 means margin top size 5-->
         <#nested>
     </div>
     <!-- Optional JavaScript -->
